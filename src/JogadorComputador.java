@@ -11,9 +11,7 @@ public class JogadorComputador {
     }
 
     public int sortearColuna(){
-        coluna = (int) (Math.random() * 7);
-
-
+        coluna = (int)(Math.random() * 7);
         return coluna;
     }
 
