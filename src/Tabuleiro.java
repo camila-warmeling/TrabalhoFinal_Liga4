@@ -1,4 +1,4 @@
-public class tabuleiro {
+public class Tabuleiro {
 
     public char[][] tabuleiro = new char[6][7]; //[linha][coluna]
     public char corUsuario, corComputador;

@@ -14,7 +14,6 @@
 - ideia: mostrar uma mensagem com a opção de sempre voltar para o menu
 -menu:
 -Como Jogar (você escolhe a coluna desejada e bla bla bla)
--Regras (faz sentido separar as regras do modo de jogar?)
 -Mostrar Tabuleiro
 -Continuar jogo (deve retornar para o momento que parou, pedindo para o usuário digitar a coluna. Não apagar o tabuleiro) (questão a se pensar, esse menu será a primeira coisa que o usuário vai ver? Não pode ser permitido continuar jogo - aparecer mensagem que nenhum jogo foi iniciado nessa seção)
 -Novo Jogo (apaga o tabuleiro e começa o jogo do início)

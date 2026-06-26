@@ -1,7 +1,7 @@
-public class jogadorUsuario {
+public class JogadorUsuario {
     private char cor;
 
-    public jogadorUsuario(char corNaoEscolhida){
+    public JogadorUsuario(char corNaoEscolhida){
         this.cor = corNaoEscolhida;
     }
     
