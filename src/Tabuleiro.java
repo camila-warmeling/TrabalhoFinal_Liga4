@@ -41,6 +41,10 @@ public class Tabuleiro {
         
     public boolean verificarEspacoDisponivelNaColuna(int coluna){
 
+        return colunaDisponivel;
+    }
+
+    public void posicionarPecaNoTabuleiro(char corPeca){
 
     }
 

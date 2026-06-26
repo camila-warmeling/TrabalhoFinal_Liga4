@@ -148,12 +148,21 @@ public class ExecucaoJogo {
         do{//variável vezDoUsuario faz a alternância entre o usuário e o computador
             if(vezDoUsuario){
                 meuTabuleiro.mostrarTabuleiro();
-                System.out.println("Sua vez! Escolha qual coluna deseja posicionara a sua peça.");
+                System.out.println("------ JOGADA USUÁRIO -------");
+                System.out.println("Escolha qual coluna deseja ou -1 para voltar ao menu.");
                 colunaEscolhida = teclado.nextInt();
-                meuTabuleiro.
+                if(colunaEscolhida == -1){
+                    mostrarMenu();
+                    break;//impede que o programa continue a partir dessa linha após ser selecionado alguma opcao do menu
+                }
 
+                boolean colunaExiste = meuTabuleiro.verificarColunaExiste(colunaEscolhida);
+                boolean colunaDisponivel = meuTabuleiro.verificarEspacoDisponivelNaColuna(colunaEscolhida);
 
-
+                if(colunaExiste && colunaDisponivel){
+                    meuTabuleiro.posicionarPecaNoTabuleiro(usuario.obterCor());
+                    System.out.println("Sua peça foi adicionada com sucesso!");
+                }
 
 
                 vezDoUsuario = false;
@@ -164,7 +173,7 @@ public class ExecucaoJogo {
 
                 vezDoUsuario = true;
            } 
-        }while();
+        }while(true);
     }
 
     public static void main(String[] args){
