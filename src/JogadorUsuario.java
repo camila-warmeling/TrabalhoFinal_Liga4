@@ -1,11 +1,7 @@
-public class JogadorUsuario {
-    private char cor;
+public class JogadorUsuario extends JogadorModelo{ //extends - palavra para herdar da outra classe modelo.
 
-    public JogadorUsuario(char corNaoEscolhida){
-        this.cor = corNaoEscolhida;
+    public JogadorUsuario(char cor){
+        super(cor); //super - nome padrão para a classe que está herdando
     }
-    
-    public char obterCor(){
-        return this.cor;
-    }
+
 }
