@@ -165,14 +165,16 @@ public class ExecucaoJogo {
                     meuTabuleiro.posicionarPecaNoTabuleiro(usuario.obterCor());
                     System.out.println("Sua peça foi adicionada com sucesso!");
                 }
-
-
                 vezDoUsuario = false;
             }else{// n precisa verificar se coluna existe
+                System.out.println("------ JOGADA COMPUTADOR -------");
                 colunaEscolhida = computador.sortearColuna();
-
-
-
+                boolean colunaDisponivel = meuTabuleiro.verificarEspacoDisponivelNaColuna(colunaEscolhida);
+                
+                if(colunaDisponivel){
+                    meuTabuleiro.posicionarPecaNoTabuleiro(computador.obterCor());
+                    System.out.println("Peça do computador foi adicionada com sucesso!");                    
+                }
                 vezDoUsuario = true;
            } 
         }while(true);
@@ -180,7 +182,6 @@ public class ExecucaoJogo {
 
     public static void main(String[] args){
         ExecucaoJogo execucao = new ExecucaoJogo();
-    
     
     }
 
