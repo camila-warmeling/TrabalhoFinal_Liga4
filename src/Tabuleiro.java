@@ -1,7 +1,5 @@
 public class Tabuleiro {
     private char[][] tabuleiro = new char[6][7]; //[linha][coluna]
-    private int numColuna = -1;
-    private boolean colunaExiste, colunaDisponivel;
     
     public Tabuleiro(){
         criarTabuleiro();
@@ -16,6 +14,7 @@ public class Tabuleiro {
     }
 
     public void mostrarTabuleiro(){
+        int numColuna = -1;
         for(int linha=-1; linha<6; linha++){
             for(int coluna=0; coluna<7; coluna++){
                 if(linha != -1){
@@ -30,17 +29,13 @@ public class Tabuleiro {
     }
 
     public boolean verificarColunaExiste(int coluna){
-        if(coluna >=0 && coluna <=6){
-            colunaExiste = true;
-        }else{
-            colunaExiste = false;
-        }
-
+        boolean colunaExiste = coluna >=0 && coluna <=6; //retorna verdadeiro ou falso
         return colunaExiste;
     }
         
     public boolean verificarEspacoDisponivelNaColuna(int coluna){
-
+        boolean colunaDisponivel;
+        //TO DO
         return colunaDisponivel;
     }
 
