@@ -67,9 +67,9 @@ public class Tabuleiro {
             vitoria = true;
         }else if(verificarVitoriaHorizontal(coluna, corJogador, contadorPontos)){
             vitoria = true;
-        //}else if(verificarVitoriaDiagonalDireta(coluna, corJogador, contadorPontos)){
+        }else if(verificarVitoriaDiagonalDireta(coluna, corJogador, contadorPontos)){
             vitoria = true;
-        //}else{
+        }else if(verificarVitoriaDiagonalEsquerda(coluna, corJogador, contadorPontos)){
             vitoria = true;
         }
 
@@ -84,16 +84,17 @@ public class Tabuleiro {
     }
 
     private boolean verificarVitoriaVertical(int coluna, char cor, int contadorPontos){
-        for(int linha = linhaVazia; linha <= linhaVazia+3; linha ++){
+        for(int linha = linhaVazia; linha < 6; linha ++){
             if(tabuleiro[linha][coluna] == cor){
                 contadorPontos ++;
             }else{//peça de baixo pertence ao adversário
                 contadorPontos = 0;
                 break;
             }
-        }
-        if(contadorPontos == 4){
+
+            if(contadorPontos == 4){
             return true;
+            }
         }
         return false;
     }
@@ -122,13 +123,33 @@ public class Tabuleiro {
         return false;
     }
 
-    //private boolean verificarVitoriaDiagonalDireta(int coluna, char cor, int contadorPontos){
-        
-    //}
+    private boolean verificarVitoriaDiagonalDireta(int coluna, char cor, int contadorPontos){
+       int linhaInicial = linhaVazia, colunaInicial = coluna, contPecasParaTras = 0;
 
-    //private boolean verificarVitoriaDiagonalEsquerda(int coluna, char cor, int contadorPontos){
+        //linha e coluna do ponto mais baixo possível para fazer uma diagonal com a peça selecionada por último.
+        while(linhaInicial < 5 && colunaInicial > 0 && contPecasParaTras < 3){
+            colunaInicial --;
+            linhaInicial ++;
+            contPecasParaTras ++;
+        }
+
+        for(int linha=linhaInicial; linha >= 0 && colunaInicial<7; linha--){
+            if(tabuleiro[linha][colunaInicial] == cor){
+                contadorPontos ++;
+            }else{  
+                contadorPontos = 0;
+            }
+            if(contadorPontos == 4){
+                return true;
+            }
+            colunaInicial ++;
+        }
+        return false;
+    }
+
+    private boolean verificarVitoriaDiagonalEsquerda(int coluna, char cor, int contadorPontos){
         
-    //}
+    }
 
     public boolean verificacaoEmpate(){
         boolean empate = (quantPecasPosicionadas == 42); 
