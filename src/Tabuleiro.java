@@ -1,7 +1,6 @@
 public class Tabuleiro {
     private char[][] tabuleiro = new char[6][7]; //[linha][coluna]
     private int linhaVazia, colunaVazia, quantPecasPosicionadas = 0;
-    private boolean fimDeJogo;
     
     public Tabuleiro(){
         criarTabuleiro();
@@ -66,7 +65,7 @@ public class Tabuleiro {
 
         if(vertical){
             vitoria = true;
-        //}else if(verificarVitoriaHorizontal(coluna, corJogador, contadorPontos)){
+        }else if(verificarVitoriaHorizontal(coluna, corJogador, contadorPontos)){
             vitoria = true;
         //}else if(verificarVitoriaDiagonalDireta(coluna, corJogador, contadorPontos)){
             vitoria = true;
@@ -107,8 +106,9 @@ public class Tabuleiro {
             posicoes = coluna;
         }
 
-        for(coluna=coluna-posicoes; coluna<coluna+4 ; coluna ++){
-            if(tabuleiro[linhaVazia][coluna] == cor){
+        //não vai testar além da sexta coluna nem testar desnessariamente colunas a mais.
+        for(int colunaAtual=coluna-posicoes; colunaAtual<coluna+4 && colunaAtual<7 ; colunaAtual ++){
+            if(tabuleiro[linhaVazia][colunaAtual] == cor){
                 contadorPontos ++;
             }else{
                 contadorPontos = 0;

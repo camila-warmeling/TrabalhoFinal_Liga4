@@ -216,20 +216,23 @@ public class ExecucaoJogo {
     }
 
     private void fimDeJogoVitoria(){
-
+        System.out.println("========================================================");
         System.out.println();
         if(vencedor.equals("Usuário")){
-            System.out.println("------ VOCÊ VENCEU! PARABÉNS! ------");
+            System.out.println("VOCÊ VENCEU! PARABÉNS!");
         }else{
-            System.out.println("------ VOCÊ PERDEU! MAIS SORTE DA PRÓXIMA VEZ ------");
+            System.out.println("VOCÊ PERDEU! MAIS SORTE DA PRÓXIMA VEZ");
         }
+        System.out.println("========================================================");
         System.out.println("Tabuleiro final:");
         meuTabuleiro.mostrarTabuleiro();
         finalizarJogo();
     }
 
     private void fimDeJogoEmpate(){
-        System.out.println("------ EMPATE! ------");
+        System.out.println("========================================================");
+        System.out.println("EMPATE!");
+        System.out.println("========================================================");
         System.out.println("Não tem mais espaços livres.");
         System.out.println("Tabuleiro final:");
         meuTabuleiro.mostrarTabuleiro();
