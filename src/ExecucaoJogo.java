@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ExecucaoJogo {
@@ -19,6 +20,7 @@ public class ExecucaoJogo {
     }
 
     private void mostrarMenu(){
+        int opcaoMenu;
         System.out.println("Menu:");
         System.out.println("1 - Como Jogar");
         System.out.println("2 - Regras do Jogo Liga-4");
@@ -27,9 +29,17 @@ public class ExecucaoJogo {
         System.out.println("5 - Continuar Jogo");
         System.out.println("6 - Sair");
 
-        System.out.println("Digite a opção:");
-        int opcaoMenu = teclado.nextInt();
-
+        while(true){
+            try{
+                System.out.println("Digite a opção:");
+                opcaoMenu = teclado.nextInt();
+                break;
+            }catch(InputMismatchException e) {//InputMismarch é o nome do erro para tipo incompatível vindo da entrada.
+                System.out.println("Erro: Digite apenas números inteiros.");
+                teclado.next(); //limpa o teclado
+            }
+        }
+        
         switch(opcaoMenu){
             case 1:
                 comoJogar();
@@ -158,8 +168,17 @@ public class ExecucaoJogo {
             if(vezDoUsuario){
                 meuTabuleiro.mostrarTabuleiro();
                 System.out.println("------ JOGADA USUÁRIO -------");
-                System.out.println("Escolha qual coluna deseja ou -1 para voltar ao menu.");
-                colunaEscolhida = teclado.nextInt();
+                while(true){
+                    try{
+                        System.out.println("Escolha qual coluna deseja ou -1 para voltar ao menu.");
+                        colunaEscolhida = teclado.nextInt();
+                        break;
+                    }catch(InputMismatchException e) {
+                        System.out.println("Erro: Digite apenas números inteiros.");
+                        teclado.next();
+                    }
+                }
+
                 if(colunaEscolhida == -1){
                     mostrarMenu();
                     break;
@@ -244,8 +263,16 @@ public class ExecucaoJogo {
     private void finalizarJogo(){
         int jogarNovamente;
         do{
-            System.out.println("Deseja jogar novamente?(1 - Sim, 2 - Não)");
-            jogarNovamente = teclado.nextInt();
+            while(true){
+                try{
+                    System.out.println("Deseja jogar novamente?(1 - Sim, 2 - Não)");
+                    jogarNovamente = teclado.nextInt();
+                    break;
+                }catch(InputMismatchException e) {
+                    System.out.println("Erro: Digite apenas números inteiros.");
+                    teclado.next();
+                }
+            }
             switch(jogarNovamente){
             case 1:
                 iniciarNovoJogo();
