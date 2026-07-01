@@ -42,17 +42,18 @@ public class ExecucaoJogo {
                 break;
 
             case 3:
-                System.out.println("Ainda não foi iniciado um jogo.");
-                System.out.println("Este é o tabuleiro vazio");
+                if(partidaIniciada){
+                    System.out.println("Este é o tabuleiro do jogo atual:");
+                }else{
+                    System.out.println("Ainda não foi iniciado um jogo.");
+                    System.out.println("Este é o tabuleiro vazio:");
+                }
                 meuTabuleiro.mostrarTabuleiro();
                 mostrarMenu();
                 break;
 
             case 4:
-                new Tabuleiro();
-                escolherCoresDasPecas();
-                sortearJogadorQueComeca();
-                iniciarPartida();
+                iniciarNovoJogo();
                 break;
 
             case 5:
@@ -218,7 +219,6 @@ public class ExecucaoJogo {
 
     private void fimDeJogoVitoria(){
         System.out.println("========================================================");
-        System.out.println();
         if(vencedor.equals("Usuário")){
             System.out.println("VOCÊ VENCEU! PARABÉNS!");
         }else{
@@ -247,7 +247,7 @@ public class ExecucaoJogo {
             jogarNovamente = teclado.nextInt();
             switch(jogarNovamente){
             case 1:
-                reiniciarJogo();
+                iniciarNovoJogo();
                 break;
         
             case 2: 
@@ -261,8 +261,8 @@ public class ExecucaoJogo {
         }while(jogarNovamente != 1 && jogarNovamente != 2);
     }
 
-    private void reiniciarJogo(){
-        new Tabuleiro();
+    private void iniciarNovoJogo(){
+        meuTabuleiro = new Tabuleiro();
         escolherCoresDasPecas();
         sortearJogadorQueComeca();
         iniciarPartida();    
